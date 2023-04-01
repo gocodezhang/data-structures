@@ -16,13 +16,17 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    var value = list.head.value;
-    //assume list is Linkedlist
-    list.head = list.head.next;
-    // list.value = list.next.value;
-    // list.next = list.next.next;
+    if (list.head) {
+      var value = list.head.value;
+      //assume list is Linkedlist
+      list.head = list.head.next;
+      // list.value = list.next.value;
+      // list.next = list.next.next;
+      return value;
+    } else {
+      return undefined;
+    }
 
-    return value;
   };
 
   list.contains = function(target) {

@@ -68,4 +68,11 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  // Additional unit test
+
+  it('should store values as nodes that were inserted (string as input instead of number)', function() {
+    graph.addNode('test');
+    expect(graph.contains('test')).to.equal(true);
+  });
 });

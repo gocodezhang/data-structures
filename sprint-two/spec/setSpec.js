@@ -24,4 +24,14 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  // Additional unit test
+  it('set should contain only unique values', function() {
+    var set1 = set;
+    set1.add('Mel Gibson');
+    set1.add('Mel Gibson');
+    var set2 = Set();
+    set2.add('Mel Gibson');
+    expect(set1).to.eql(set2);
+  });
+
 });

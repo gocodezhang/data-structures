@@ -41,4 +41,15 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  // Additional unit test
+  it('should work correctly with string as well', function() {
+    tree.addChild('test1');
+    tree.addChild('test2');
+    tree.children[0].addChild('test3');
+    tree.children[1].addChild('test4');
+    expect(tree.contains('test1')).to.equal(true);
+    expect(tree.contains('test3')).to.equal(true);
+  });
+
+
 });

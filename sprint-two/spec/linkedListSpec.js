@@ -31,6 +31,7 @@ describe('linkedList', function() {
     expect(linkedList.head.value).to.equal(5);
   });
 
+
   it('should return the value of the former head when removeHead is called', function() {
     linkedList.addToTail(4);
     expect(linkedList.removeHead()).to.equal(4);
@@ -51,5 +52,11 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
-  // add more tests here to test the functionality of linkedList
+
+  // Additional unit test
+  it('should return undefined when removeHead is called on empty linkedlist', function() {
+    var actual = linkedList.removeHead();
+    expect(actual).to.equal(undefined);
+  });
+
 });

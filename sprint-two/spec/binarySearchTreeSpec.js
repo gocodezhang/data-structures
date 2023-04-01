@@ -37,4 +37,20 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  // Additional unit test
+
+  it('all three methods should work when input is string instead', function() {
+    stringBinarySearchTree = BinarySearchTree('g');
+    stringBinarySearchTree.insert('b');
+    stringBinarySearchTree.insert('c');
+    stringBinarySearchTree.insert('y');
+    expect(stringBinarySearchTree.contains('b')).to.equal(true);
+
+    var array = [];
+    var func = function(value) { array.push(value); };
+    stringBinarySearchTree.depthFirstLog(func);
+    expect(array).to.eql(['g', 'b', 'c', 'y']);
+  });
+
 });

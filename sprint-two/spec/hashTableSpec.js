@@ -73,4 +73,25 @@ describe('hashTable', function() {
     hashTable.remove('Mr.');
     expect(hashTable._limit).to.equal(8);
   });
+
+  // Additional unit test
+
+  it('the remove method should return undefined when the key doesn\'t exist', function() {
+    hashTable.insert('Steven', 'Tyler');
+    hashTable.remove('Steven');
+    expect(hashTable.remove('Steven')).to.equal(undefined);
+  });
+
+  it('the remove method should handle the case where there are hash function collisions in hash table', function() {
+    var v1 = 'val1';
+    var v2 = 'val2';
+    var oldHashFunction = window.getIndexBelowMaxForKey;
+    window.getIndexBelowMaxForKey = function() { return 0; };
+    hashTable.insert(v1, v1);
+    hashTable.insert(v2, v2);
+    hashTable.remove(v1);
+    expect(hashTable.retrieve(v2)).to.equal(v2);
+    window.getIndexBelowMaxForKey = oldHashFunction;
+  });
+
 });
